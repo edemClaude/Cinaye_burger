@@ -17,8 +17,8 @@ return new class extends Migration
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('burger_id')->constrained()
                 ->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('quantity');
-            $table->float('price');
+            $table->integer('quantity')->default(1);
+            $table->string('facture')->nullable();
             $table->enum('status', ['pending', 'canceled', 'sold'])->default('pending');
             $table->timestamps();
         });
